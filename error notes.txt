@@ -1,0 +1,17 @@
+- [ ] The **searchbar** of the **NavBar** has a slight shaded box around the search area. If possible, make that the same color. 
+		- Otherwise, just leave as is. 
+- [ ] If we go **directly** to the **FullInfoCard url** (i.e. .../dashboard/customer-card-journey-msg), we recieve a **TypeError** because the we did not recieve props from the **InfoCard** to the **CardDisplay** page. It reads ==TypeError: Cannot read properties of null {reading: 'processName'}==. If there is time, check for this error and call **useQuery** and possibly make a function that will process all the queries for the data we need,  **or** use **useContext** in the **SecureRoutes** page, and do all the query handling there so that **all the routes underneath** it can use our pre-processed data. 
+		- Other option would be to check the url. and use the second half of the url containing the **process name** in order to call useQuery and get the data needed.
+- [ ] Change the **default button** into the **contained** one possibly, or apply the styles I have to the contained button, namely ==padding: 5==. 
+- [ ] Error with not refreshing for **refresh token**.
+		- After 1 hour (I think) with the access token, an error with <font style="color:red">POST &lt;URL&gt; 401 Unauthorized</font> is returned.
+		- Options to fix this come from the **Error Handling** page of the **Apollo Client** Docs.
+- [ ] When **logging out**, the route does not change (i.e. if logged out at .../dashboard/customer-service, the screen will become the **logout** screen, but the **url** will stay the **same**).
+		- A fix may be to add a **link change** to the **onClick** functionality of the **logout button**? If possible, then make the ==LogoutButton== it's own separate component from the AvatarButton. 
+- [ ] After logout, keycloak occasionally returns <font style="color:red">Failed to load resource: the server responded with a status of 500 (Internal Server Error)</font>
+		- To fix, possibly have an error boundary wrapped around the application?
+- [ ] GraphQL returns <font style="color:red">Failed to load resource: the server responded with a status of 401 (Unauthorized)</font> upon **token error**
+		- Fix would be to **implement** the **refresh token**
+- [ ] Apollo Client Data does not refresh
+		- Fix would be maybe to create my own refreshButton component or hook, which is called by a physical button and/or the logo that refreshes the queries and the cache.
+- [ ] 
